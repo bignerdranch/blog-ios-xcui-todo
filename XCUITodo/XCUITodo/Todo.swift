@@ -8,8 +8,14 @@
 
 import Foundation
 
-struct Todo {
+class Todo {
     let title: String
     let due: NSDate
     let finished: Bool
+
+    init(title: String, due: NSDate, finished: Bool) {
+        self.title = title
+        self.due = due
+        self.finished = finished
+    }
 }
