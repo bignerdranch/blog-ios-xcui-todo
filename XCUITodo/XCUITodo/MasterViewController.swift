@@ -10,7 +10,7 @@ import UIKit
 
 class ListPickerViewController: UITableViewController {
 
-    var detailViewController: DetailViewController? = nil
+    var detailViewController: TodoListViewController? = nil
     var objects = [AnyObject]()
 
 
@@ -23,7 +23,7 @@ class ListPickerViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = addButton
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? TodoListViewController
         }
     }
 
@@ -49,7 +49,7 @@ class ListPickerViewController: UITableViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row] as! NSDate
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! TodoListViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true

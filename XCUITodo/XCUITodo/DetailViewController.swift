@@ -1,5 +1,5 @@
 //
-//  DetailViewController.swift
+//  TodoListViewController.swift
 //  XCUITodo
 //
 //  Created by Jeremy on 2015-07-23.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class TodoListViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
