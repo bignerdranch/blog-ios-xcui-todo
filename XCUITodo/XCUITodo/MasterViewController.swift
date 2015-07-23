@@ -1,5 +1,5 @@
 //
-//  MasterViewController.swift
+//  ListPickerViewController.swift
 //  XCUITodo
 //
 //  Created by Jeremy on 2015-07-23.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class ListPickerViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
