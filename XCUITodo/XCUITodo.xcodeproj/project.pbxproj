@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3FC835AB1B6155AD0018BADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC835AA1B6155AD0018BADD /* AppDelegate.swift */; };
-		3FC835AD1B6155AD0018BADD /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC835AC1B6155AD0018BADD /* MasterViewController.swift */; };
-		3FC835AF1B6155AD0018BADD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC835AE1B6155AD0018BADD /* DetailViewController.swift */; };
+		3FC835AD1B6155AD0018BADD /* ListPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC835AC1B6155AD0018BADD /* ListPickerViewController.swift */; };
+		3FC835AF1B6155AD0018BADD /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC835AE1B6155AD0018BADD /* TodoListViewController.swift */; };
 		3FC835B21B6155AD0018BADD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC835B01B6155AD0018BADD /* Main.storyboard */; };
 		3FC835B41B6155AD0018BADD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FC835B31B6155AD0018BADD /* Assets.xcassets */; };
 		3FC835B71B6155AD0018BADD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC835B51B6155AD0018BADD /* LaunchScreen.storyboard */; };
@@ -37,8 +37,8 @@
 /* Begin PBXFileReference section */
 		3FC835A71B6155AD0018BADD /* XCUITodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XCUITodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC835AA1B6155AD0018BADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3FC835AC1B6155AD0018BADD /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		3FC835AE1B6155AD0018BADD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3FC835AC1B6155AD0018BADD /* ListPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPickerViewController.swift; sourceTree = "<group>"; };
+		3FC835AE1B6155AD0018BADD /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		3FC835B11B6155AD0018BADD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FC835B31B6155AD0018BADD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FC835B61B6155AD0018BADD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				3FC835AA1B6155AD0018BADD /* AppDelegate.swift */,
-				3FC835AC1B6155AD0018BADD /* MasterViewController.swift */,
-				3FC835AE1B6155AD0018BADD /* DetailViewController.swift */,
+				3FC835AC1B6155AD0018BADD /* ListPickerViewController.swift */,
+				3FC835AE1B6155AD0018BADD /* TodoListViewController.swift */,
 				3FC835B01B6155AD0018BADD /* Main.storyboard */,
 				3FC835B31B6155AD0018BADD /* Assets.xcassets */,
 				3FC835B51B6155AD0018BADD /* LaunchScreen.storyboard */,
@@ -258,8 +258,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FC835AF1B6155AD0018BADD /* DetailViewController.swift in Sources */,
-				3FC835AD1B6155AD0018BADD /* MasterViewController.swift in Sources */,
+				3FC835AF1B6155AD0018BADD /* TodoListViewController.swift in Sources */,
+				3FC835AD1B6155AD0018BADD /* ListPickerViewController.swift in Sources */,
 				3FC835AB1B6155AD0018BADD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
