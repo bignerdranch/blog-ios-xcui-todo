@@ -8,12 +8,19 @@
 
 import UIKit
 
-class TodoListViewController: UIViewController {
+class TodoListViewController: UITableViewController {
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
+    private var todos: [Todo] = []
+    private var filter: (Todo -> Bool)!
 
+    func configure(todos todos: [Todo], filter: Todo -> Bool) {
+        self.todos = todos
+        self.filter = filter
+    }
 
-    var todos: [Todo] = []
+    var empty: Bool {
+        return todos.count == 0
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
