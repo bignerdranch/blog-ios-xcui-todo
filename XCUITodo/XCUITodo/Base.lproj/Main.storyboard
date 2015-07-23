@@ -62,7 +62,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
+                                            <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail0" id="6S0-TO-JiA"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="cJ1-P0-Z5d" style="IBUITableViewCellStyleDefault" id="XfB-dG-cZc">
@@ -83,7 +83,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="N65-qi-FN5"/>
+                                            <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail1" id="N65-qi-FN5"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="yCa-ny-zob" style="IBUITableViewCellStyleDefault" id="k6K-2U-m5n">
@@ -104,7 +104,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="XVS-yJ-HrR"/>
+                                            <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail2" id="XVS-yJ-HrR"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -183,6 +183,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="XVS-yJ-HrR"/>
+        <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

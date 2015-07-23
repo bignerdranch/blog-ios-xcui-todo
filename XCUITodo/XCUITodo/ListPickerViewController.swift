@@ -34,7 +34,8 @@ class ListPickerViewController: UITableViewController {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
+        guard let identifier = segue.identifier else { return }
+        if identifier.hasPrefix(SegueShowDetail) {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let filter = filters[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! TodoListViewController
@@ -49,6 +50,8 @@ class ListPickerViewController: UITableViewController {
     }
 
 }
+
+private let SegueShowDetail = "showDetail"
 
 /// Type-specialized identity function to save from typing inferrable boilerplate.
 private func filteringTodo(fn: Todo -> Bool) -> Todo -> Bool { return fn }
