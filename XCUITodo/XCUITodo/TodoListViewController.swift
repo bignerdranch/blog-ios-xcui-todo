@@ -26,9 +26,27 @@ class TodoListViewController: UITableViewController {
         return todos.count == 0
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func tableView(tableView: UITableView,
+            numberOfRowsInSection section: Int) -> Int {
+        return filteredTodos.count
     }
 
+    override func tableView(tableView: UITableView,
+            cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let todo = filteredTodos[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("todo", forIndexPath: indexPath)
+        cell.textLabel!.attributedText = (todo.finished ? strikethrough : normal)(todo.title)
+        cell.detailTextLabel!.text = NSDateFormatter.localizedStringFromDate(todo.due, dateStyle: .FullStyle, timeStyle: .ShortStyle)
+        return cell
+    }
 }
 
+private func normal(text: String) -> NSAttributedString {
+    return NSAttributedString(string: text)
+}
+
+private func strikethrough(text: String) -> NSAttributedString {
+    return NSAttributedString(string: text, attributes:
+        [NSStrikethroughStyleAttributeName
+            : NSUnderlineStyle.StyleSingle.rawValue])
+}
