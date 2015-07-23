@@ -11,8 +11,13 @@ import UIKit
 class ListPickerViewController: UITableViewController {
 
     var detailViewController: TodoListViewController? = nil
-    var objects = [AnyObject]()
+    var todos = Todo.defaultList()
 
+    let filters: [Todo -> Bool] = [
+        filteringTodo({ dayOf($0.due) == dayOf(NSDate()) }),
+        filteringTodo({ !$0.finished }),
+        filteringTodo({ $0.finished })
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +36,10 @@ class ListPickerViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let filter = filters[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! TodoListViewController
-                controller.detailItem = object
+                controller.detailItem = todos.filter(filter)
+
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -42,3 +48,8 @@ class ListPickerViewController: UITableViewController {
 
 }
 
+/// Type-specialized identity function to save from typing inferrable boilerplate.
+private func filteringTodo(fn: Todo -> Bool) -> Todo -> Bool { return fn }
+private func dayOf(date: NSDate) -> Int {
+    return NSCalendar.currentCalendar().component(.Day, fromDate: date)
+}
