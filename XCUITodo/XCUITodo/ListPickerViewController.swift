@@ -38,10 +38,12 @@ class ListPickerViewController: UITableViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let filter = filters[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! TodoListViewController
-                controller.configure(todos: todos, filter: filter)
+                controller.title = self.tableView.cellForRowAtIndexPath(indexPath)?.textLabel?.text
 
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
+
+                controller.configure(todos: todos, filter: filter)
             }
         }
     }

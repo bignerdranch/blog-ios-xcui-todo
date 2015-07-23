@@ -16,6 +16,7 @@ class TodoListViewController: UITableViewController {
     func configure(todos todos: [Todo], filter: Todo -> Bool) {
         self.todos = todos
         self.filter = filter
+        print("\(self.title): configured with \(todos.filter(filter).count) todos")
     }
 
     var empty: Bool {
