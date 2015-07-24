@@ -16,6 +16,7 @@
 		3FC835C21B6155AD0018BADD /* XCUITodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC835C11B6155AD0018BADD /* XCUITodoTests.swift */; };
 		3FC835CD1B6155AD0018BADD /* XCUITodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC835CC1B6155AD0018BADD /* XCUITodoUITests.swift */; };
 		3FC835DB1B615DD80018BADD /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC835DA1B615DD80018BADD /* Todo.swift */; };
+		3FC835DD1B62CAE80018BADD /* TodoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC835DC1B62CAE80018BADD /* TodoCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		3FC835CC1B6155AD0018BADD /* XCUITodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUITodoUITests.swift; sourceTree = "<group>"; };
 		3FC835CE1B6155AD0018BADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FC835DA1B615DD80018BADD /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		3FC835DC1B62CAE80018BADD /* TodoCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				3FC835AA1B6155AD0018BADD /* AppDelegate.swift */,
 				3FC835AC1B6155AD0018BADD /* ListPickerViewController.swift */,
 				3FC835AE1B6155AD0018BADD /* TodoListViewController.swift */,
+				3FC835DC1B62CAE80018BADD /* TodoCellView.swift */,
 				3FC835DA1B615DD80018BADD /* Todo.swift */,
 				3FC835B01B6155AD0018BADD /* Main.storyboard */,
 				3FC835B31B6155AD0018BADD /* Assets.xcassets */,
@@ -264,6 +267,7 @@
 				3FC835AF1B6155AD0018BADD /* TodoListViewController.swift in Sources */,
 				3FC835AD1B6155AD0018BADD /* ListPickerViewController.swift in Sources */,
 				3FC835AB1B6155AD0018BADD /* AppDelegate.swift in Sources */,
+				3FC835DD1B62CAE80018BADD /* TodoCellView.swift in Sources */,
 				3FC835DB1B615DD80018BADD /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
