@@ -44,11 +44,10 @@ class TodoListViewController: UITableViewController {
         cell.configure(todo: todo) {
             [weak cell, weak tableView] in
             let stillInTheList = self.filter(todo)
-            if (stillInTheList) {
-                tableView?.bnr_reloadRowForCell(cell, withRowAnimation: .Fade)
-            } else {
-                tableView?.bnr_deleteRowForCell(cell, withRowAnimation: .Fade)
-            }
+            let updateRowForCell = stillInTheList
+                ? tableView?.bnr_reloadRowForCell
+                : tableView?.bnr_deleteRowForCell
+            updateRowForCell?(cell, withRowAnimation: .Fade)
         }
         return cell
     }
