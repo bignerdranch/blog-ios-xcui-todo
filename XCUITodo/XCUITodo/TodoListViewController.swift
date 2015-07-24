@@ -43,13 +43,26 @@ class TodoListViewController: UITableViewController {
             as! TodoCellView
         cell.configure(todo: todo) {
             [weak cell, weak tableView] in
-            tableView?.bnr_reloadRowForCell(cell, withRowAnimation: .Fade)
+            let stillInTheList = self.filter(todo)
+            if (stillInTheList) {
+                tableView?.bnr_reloadRowForCell(cell, withRowAnimation: .Fade)
+            } else {
+                tableView?.bnr_deleteRowForCell(cell, withRowAnimation: .Fade)
+            }
         }
         return cell
     }
 }
 
 extension UITableView {
+    func bnr_deleteRowForCell(cell: UITableViewCell?,
+            withRowAnimation animation: UITableViewRowAnimation) {
+        guard
+            let cell = cell,
+            let indexPath = indexPathForCell(cell) else { return }
+        deleteRowsAtIndexPaths([indexPath], withRowAnimation: animation)
+    }
+
     func bnr_reloadRowForCell(cell: UITableViewCell?,
             withRowAnimation animation: UITableViewRowAnimation) {
         guard
