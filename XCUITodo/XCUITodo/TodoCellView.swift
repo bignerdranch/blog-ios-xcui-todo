@@ -10,25 +10,15 @@ import UIKit
 
 class TodoCellView : UITableViewCell {
     weak var todo: Todo?
-    weak var table: UITableView?
+    var afterToggling: (() -> Void)?
 
-    func configure(todo todo: Todo, table: UITableView) {
+    func configure(todo todo: Todo, afterToggling: () -> ()) {
         self.todo = todo
-        self.table = table
+        self.afterToggling = afterToggling
 
         textLabel!.attributedText = (todo.finished ? strikethrough : normal)(todo.title)
         detailTextLabel!.text = NSDateFormatter.localizedStringFromDate(
             todo.due, dateStyle: .FullStyle, timeStyle: .ShortStyle)
-    }
-
-    func toggleFinished() {
-        guard
-            let todo = todo,
-            let table = table,
-            let indexPath = table.indexPathForCell(self) else { return }
-
-        todo.toggleFinished()
-        table.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
 
     @IBAction
@@ -36,9 +26,13 @@ class TodoCellView : UITableViewCell {
         /* State might also be .Ended, but we want to trigger
          * when a press goes on for a while, rather than
          * when the long-pressed touch ends. */
-        guard sender.state == .Began else { return }
+        guard
+            let todo = todo
+        where
+            sender.state == .Began else { return }
 
-        toggleFinished()
+        todo.toggleFinished()
+        afterToggling?()
     }
 
     func addToggleRecognizer() {

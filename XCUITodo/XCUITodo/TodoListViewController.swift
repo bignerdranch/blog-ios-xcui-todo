@@ -41,7 +41,20 @@ class TodoListViewController: UITableViewController {
         let todo = todoForIndexPath(indexPath)
         let cell = tableView.dequeueReusableCellWithIdentifier("todo", forIndexPath: indexPath)
             as! TodoCellView
-        cell.configure(todo: todo, table: tableView)
+        cell.configure(todo: todo) {
+            [weak cell, weak tableView] in
+            tableView?.bnr_reloadRowForCell(cell, withRowAnimation: .Fade)
+        }
         return cell
+    }
+}
+
+extension UITableView {
+    func bnr_reloadRowForCell(cell: UITableViewCell?,
+            withRowAnimation animation: UITableViewRowAnimation) {
+        guard
+            let cell = cell,
+            let indexPath = indexPathForCell(cell) else { return }
+        reloadRowsAtIndexPaths([indexPath], withRowAnimation: animation)
     }
 }
