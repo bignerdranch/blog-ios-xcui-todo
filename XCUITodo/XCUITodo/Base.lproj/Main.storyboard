@@ -144,6 +144,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="todo" editingAccessoryType="checkmark" textLabel="r8I-HG-0uC" detailTextLabel="i0g-J2-Va0" style="IBUITableViewCellStyleSubtitle" id="dY4-4z-gKk">
                                 <rect key="frame" x="0.0" y="86" width="600" height="44"/>
@@ -173,11 +174,17 @@
                         <connections>
                             <outlet property="dataSource" destination="T3q-sl-sOl" id="zkU-S9-SrF"/>
                             <outlet property="delegate" destination="T3q-sl-sOl" id="HH0-6U-MRQ"/>
+                            <outletCollection property="gestureRecognizers" destination="fRJ-Z3-OEG" appends="YES" id="rNo-fB-hjR"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="CZV-zB-Qpm"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQR-P6-ZdZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="fRJ-Z3-OEG">
+                    <connections>
+                        <action selector="longPressAction:" destination="T3q-sl-sOl" id="f8x-4Y-UTs"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
         </scene>

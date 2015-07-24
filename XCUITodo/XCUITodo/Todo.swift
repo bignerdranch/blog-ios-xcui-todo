@@ -11,7 +11,11 @@ import Foundation
 class Todo {
     let title: String
     let due: NSDate
-    let finished: Bool
+    var finished: Bool
+
+    func toggleFinished() {
+        finished = !finished
+    }
 
     init(title: String, due: NSDate, finished: Bool) {
         self.title = title
