@@ -26,7 +26,7 @@ class XCUITodoUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testLongPressTogglesFirstTodayItemFinished() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         XCUIApplication().tables.staticTexts["Due Today"].tap()
@@ -42,14 +42,21 @@ class XCUITodoUITests: XCTestCase {
         let cells = XCUIApplication().tables.cells
         XCTAssertEqual(cells.count, 2, "found instead: \(cells.debugDescription)")
 
-        let first = cells.elementBoundByIndex(0)
-        print("first, before: \(first.debugDescription)")
-        first.bnr_longPress()
+        let staticTextOfFirstCell = cells.elementBoundByIndex(0)
+            .staticTexts.elementBoundByIndex(0)
+        let beforeLabel = staticTextOfFirstCell.label
 
-        /* TODO: how do we check if it's finished?! */
-        print("first, after: \(first.debugDescription)")
+        staticTextOfFirstCell.bnr_longPress()
+
+        let afterLabel = staticTextOfFirstCell.label
+        let finishedStateDidChange = (isFinishedTodoCellLabel(beforeLabel)
+            != isFinishedTodoCellLabel(afterLabel))
+        XCTAssert(finishedStateDidChange, "before: \(beforeLabel) -> after: \(afterLabel)")
     }
 
+    func isFinishedTodoCellLabel(label: String) -> Bool {
+        return label.hasPrefix(Accessibility.FinishedTitlePrefix)
+    }
 }
 
 extension XCUIElement {
