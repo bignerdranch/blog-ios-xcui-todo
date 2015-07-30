@@ -61,7 +61,7 @@ class XCUITodoUITests: XCTestCase {
 
 extension XCUIElement {
     func bnr_longPress() {
-        let duration: NSTimeInterval = 0.5
+        let duration: NSTimeInterval = 0.6
         pressForDuration(duration)
     }
 }
