@@ -17,8 +17,17 @@ class TodoCellView : UITableViewCell {
         self.afterToggling = afterToggling
 
         textLabel!.attributedText = (todo.finished ? strikethrough : normal)(todo.title)
+        textLabel!.accessibilityLabel = accessibilityLabelFor(todo)
         detailTextLabel!.text = NSDateFormatter.localizedStringFromDate(
             todo.due, dateStyle: .FullStyle, timeStyle: .ShortStyle)
+    }
+
+    private func accessibilityLabelFor(todo: Todo) -> String {
+        guard todo.finished else { return todo.title }
+
+        let template = NSLocalizedString("done: %@", comment: "accessibility label for finished todo item")
+        let label = NSString.localizedStringWithFormat(template, todo.title)
+        return label as String
     }
 
     @IBAction
