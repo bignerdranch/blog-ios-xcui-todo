@@ -25,9 +25,7 @@ class TodoCellView : UITableViewCell {
     private func accessibilityLabelFor(todo: Todo) -> String {
         guard todo.finished else { return todo.title }
 
-        let template = NSLocalizedString("done: %@", comment: "accessibility label for finished todo item")
-        let label = NSString.localizedStringWithFormat(template, todo.title)
-        return label as String
+        return Accessibility.titlePrefixedToIndicateFinished(todo.title)
     }
 
     @IBAction
