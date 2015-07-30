@@ -29,6 +29,32 @@ class XCUITodoUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCUIApplication().tables.staticTexts["Due Today"].tap()
+
+        /* For a bit, both the old and the new table will be found.
+         * This leads to us finding 5 (3 + 2) rather than just 2 cells. */
+        _ = self.expectationForPredicate(
+            NSPredicate(format: "self.count = 1"),
+            evaluatedWithObject: XCUIApplication().tables,
+            handler: nil)
+        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+
+        let cells = XCUIApplication().tables.cells
+        XCTAssertEqual(cells.count, 2, "found instead: \(cells.debugDescription)")
+
+        let first = cells.elementBoundByIndex(0)
+        print("first, before: \(first.debugDescription)")
+        first.bnr_longPress()
+
+        /* TODO: how do we check if it's finished?! */
+        print("first, after: \(first.debugDescription)")
     }
-    
+
+}
+
+extension XCUIElement {
+    func bnr_longPress() {
+        let duration: NSTimeInterval = 0.5
+        pressForDuration(duration)
+    }
 }
