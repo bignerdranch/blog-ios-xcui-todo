@@ -10,8 +10,10 @@ import Foundation
 
 class Accessibility {
     static func titlePrefixedToIndicateFinished(title: String) -> String {
-        /* Genstrings strips out the verbatim string,
-         * so we can't just interpolate a constant prefix here. */
+        /* Genstrings uses first argument verbatim when generating
+         * Localizable.strings files,
+         * so interpolating a constant prefix here like "\(prefix): %@"
+         * would not be terribly useful. */
         let template = NSLocalizedString("done: %@",
             comment: "accessibility label for finished todo item")
         let label = NSString.localizedStringWithFormat(template, title)
