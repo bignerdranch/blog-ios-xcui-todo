@@ -26,9 +26,42 @@ class XCUITodoUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testLongPressTogglesFirstTodayItemFinished() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCUIApplication().tables.staticTexts["Due Today"].tap()
+
+        /* For a bit, both the old and the new table will be found.
+         * This leads to us finding 5 (3 + 2) rather than just 2 cells. */
+        _ = self.expectationForPredicate(
+            NSPredicate(format: "self.count = 1"),
+            evaluatedWithObject: XCUIApplication().tables,
+            handler: nil)
+        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+
+        let cells = XCUIApplication().tables.cells
+        XCTAssertEqual(cells.count, 2, "found instead: \(cells.debugDescription)")
+
+        let staticTextOfFirstCell = cells.elementBoundByIndex(0)
+            .staticTexts.elementBoundByIndex(0)
+        let beforeLabel = staticTextOfFirstCell.label
+
+        staticTextOfFirstCell.bnr_longPress()
+
+        let afterLabel = staticTextOfFirstCell.label
+        let finishedStateDidChange = (isFinishedTodoCellLabel(beforeLabel)
+            != isFinishedTodoCellLabel(afterLabel))
+        XCTAssert(finishedStateDidChange, "before: \(beforeLabel) -> after: \(afterLabel)")
     }
-    
+
+    func isFinishedTodoCellLabel(label: String) -> Bool {
+        return label.hasPrefix(Accessibility.FinishedTitlePrefix)
+    }
+}
+
+extension XCUIElement {
+    func bnr_longPress() {
+        let duration: NSTimeInterval = 0.6
+        pressForDuration(duration)
+    }
 }

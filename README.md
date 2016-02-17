@@ -3,6 +3,7 @@
 This is a simple app used to introduce Xcode 7's UI testing support.
 
 As of writing, Xcode 7.0 beta 4 (7A165t) was the current version.
+Screenshots were recorded under Xcode 7.0 beta 5 (7A176x).
 
 
 ## Blog Posts
