@@ -210,11 +210,13 @@
 					};
 					3FC835BC1B6155AD0018BADD = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = ZTV6QXXYAS;
 						LastSwiftMigration = 0800;
 						TestTargetID = 3FC835A61B6155AC0018BADD;
 					};
 					3FC835C71B6155AD0018BADD = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = ZTV6QXXYAS;
 						LastSwiftMigration = 0800;
 						TestTargetID = 3FC835A61B6155AC0018BADD;
 					};
@@ -446,6 +448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ZTV6QXXYAS;
 				INFOPLIST_FILE = XCUITodoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.XCUITodoTests;
@@ -459,6 +462,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ZTV6QXXYAS;
 				INFOPLIST_FILE = XCUITodoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.XCUITodoTests;
@@ -471,6 +475,7 @@
 		3FC835D81B6155AD0018BADD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = ZTV6QXXYAS;
 				INFOPLIST_FILE = XCUITodoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.XCUITodoUITests;
@@ -484,6 +489,7 @@
 		3FC835D91B6155AD0018BADD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = ZTV6QXXYAS;
 				INFOPLIST_FILE = XCUITodoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.XCUITodoUITests;
