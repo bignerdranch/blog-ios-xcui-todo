@@ -9,14 +9,14 @@
 import Foundation
 
 class Accessibility {
-    static func titlePrefixedToIndicateFinished(title: String) -> String {
+    static func titlePrefixedToIndicateFinished(_ title: String) -> String {
         /* Genstrings uses first argument verbatim when generating
          * Localizable.strings files,
          * so interpolating a constant prefix here like "\(prefix): %@"
          * would not be terribly useful. */
         let template = NSLocalizedString("done: %@",
             comment: "accessibility label for finished todo item")
-        let label = NSString.localizedStringWithFormat(template, title)
+        let label = NSString.localizedStringWithFormat(template as NSString, title)
         return label as String
     }
 
