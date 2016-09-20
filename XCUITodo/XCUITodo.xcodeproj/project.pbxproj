@@ -451,7 +451,7 @@
 				DEVELOPMENT_TEAM = ZTV6QXXYAS;
 				INFOPLIST_FILE = XCUITodoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.XCUITodoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidkwlam.XCUITodoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XCUITodo.app/XCUITodo";
@@ -465,7 +465,7 @@
 				DEVELOPMENT_TEAM = ZTV6QXXYAS;
 				INFOPLIST_FILE = XCUITodoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.XCUITodoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidkwlam.XCUITodoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/XCUITodo.app/XCUITodo";
@@ -478,7 +478,7 @@
 				DEVELOPMENT_TEAM = ZTV6QXXYAS;
 				INFOPLIST_FILE = XCUITodoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.XCUITodoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidkwlam.XCUITodoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = XCUITodo;
@@ -492,7 +492,7 @@
 				DEVELOPMENT_TEAM = ZTV6QXXYAS;
 				INFOPLIST_FILE = XCUITodoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.XCUITodoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidkwlam.XCUITodoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = XCUITodo;
