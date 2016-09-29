@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-if [ $BUDDYBUILD_SCHEME == "XCUITodo Tests" ]
+if [ "$BUDDYBUILD_SCHEME" == "XCUITodo Tests" ]
   then
     echo "This is the test scheme!"
+    echo "{ \"skip_xcodebuild\": true }" > buddybuild_settings.json
 fi
