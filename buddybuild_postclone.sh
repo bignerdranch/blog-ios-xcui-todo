@@ -2,6 +2,6 @@
 
 if [ "$BUDDYBUILD_SCHEME" == "XCUITodo Tests" ]
   then
-    echo "This is the test scheme!"
+    echo "Creating buddybuild_settings.json"
     echo "{ \"skip_xcodebuild\": true }" > buddybuild_settings.json
 fi
