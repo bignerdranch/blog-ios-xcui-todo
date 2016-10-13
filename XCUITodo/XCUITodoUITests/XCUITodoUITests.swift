@@ -33,17 +33,17 @@ class XCUITodoUITests: XCTestCase {
 
         /* For a bit, both the old and the new table will be found.
          * This leads to us finding 5 (3 + 2) rather than just 2 cells. */
-        _ = self.expectationForPredicate(
-            NSPredicate(format: "self.count = 1"),
-            evaluatedWithObject: XCUIApplication().tables,
+        _ = self.expectation(
+            for: NSPredicate(format: "self.count = 1"),
+            evaluatedWith: XCUIApplication().tables,
             handler: nil)
-        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+        self.waitForExpectations(timeout: 5.0, handler: nil)
 
         let cells = XCUIApplication().tables.cells
         XCTAssertEqual(cells.count, 2, "found instead: \(cells.debugDescription)")
 
-        let staticTextOfFirstCell = cells.elementBoundByIndex(0)
-            .staticTexts.elementBoundByIndex(0)
+        let staticTextOfFirstCell = cells.element(boundBy: 0)
+            .staticTexts.element(boundBy: 0)
         let beforeLabel = staticTextOfFirstCell.label
 
         staticTextOfFirstCell.bnr_longPress()
@@ -54,14 +54,14 @@ class XCUITodoUITests: XCTestCase {
         XCTAssert(finishedStateDidChange, "before: \(beforeLabel) -> after: \(afterLabel)")
     }
 
-    func isFinishedTodoCellLabel(label: String) -> Bool {
+    func isFinishedTodoCellLabel(_ label: String) -> Bool {
         return label.hasPrefix(Accessibility.FinishedTitlePrefix)
     }
 }
 
 extension XCUIElement {
     func bnr_longPress() {
-        let duration: NSTimeInterval = 0.6
-        pressForDuration(duration)
+        let duration: TimeInterval = 0.6
+        press(forDuration: duration)
     }
 }

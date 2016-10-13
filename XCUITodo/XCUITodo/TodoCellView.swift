@@ -12,31 +12,31 @@ class TodoCellView : UITableViewCell {
     weak var todo: Todo?
     var afterToggling: (() -> Void)?
 
-    func configure(todo todo: Todo, afterToggling: () -> ()) {
+    func configure(todo: Todo, afterToggling: @escaping () -> ()) {
         self.todo = todo
         self.afterToggling = afterToggling
 
         textLabel!.attributedText = (todo.finished ? strikethrough : normal)(todo.title)
         textLabel!.accessibilityLabel = accessibilityLabelFor(todo)
-        detailTextLabel!.text = NSDateFormatter.localizedStringFromDate(
-            todo.due, dateStyle: .FullStyle, timeStyle: .ShortStyle)
+        detailTextLabel!.text = DateFormatter.localizedString(
+            from: todo.due as Date, dateStyle: .full, timeStyle: .short)
     }
 
-    private func accessibilityLabelFor(todo: Todo) -> String {
+    fileprivate func accessibilityLabelFor(_ todo: Todo) -> String {
         guard todo.finished else { return todo.title }
 
         return Accessibility.titlePrefixedToIndicateFinished(todo.title)
     }
 
     @IBAction
-    func toggleAction(sender: UIGestureRecognizer) {
+    func toggleAction(_ sender: UIGestureRecognizer) {
         /* State might also be .Ended, but we want to trigger
          * when a press goes on for a while, rather than
          * when the long-pressed touch ends. */
         guard
             let todo = todo
-        where
-            sender.state == .Began else { return }
+        ,
+            sender.state == .began else { return }
 
         todo.toggleFinished()
         afterToggling?()
@@ -45,7 +45,7 @@ class TodoCellView : UITableViewCell {
     func addToggleRecognizer() {
         let recognizer = UILongPressGestureRecognizer()
         self.addGestureRecognizer(recognizer)
-        recognizer.addTarget(self, action: "toggleAction:")
+        recognizer.addTarget(self, action: #selector(TodoCellView.toggleAction(_:)))
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -59,12 +59,12 @@ class TodoCellView : UITableViewCell {
     }
 }
 
-private func normal(text: String) -> NSAttributedString {
+private func normal(_ text: String) -> NSAttributedString {
     return NSAttributedString(string: text)
 }
 
-private func strikethrough(text: String) -> NSAttributedString {
+private func strikethrough(_ text: String) -> NSAttributedString {
     return NSAttributedString(string: text, attributes:
         [NSStrikethroughStyleAttributeName
-            : NSUnderlineStyle.StyleSingle.rawValue])
+            : NSUnderlineStyle.styleSingle.rawValue])
 }
